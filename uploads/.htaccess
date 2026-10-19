@@ -1,0 +1,15 @@
+# Allow access to uploaded files
+# This file ensures uploaded images can be accessed by the website
+Options -Indexes
+
+# Security headers
+<FilesMatch "\.(jpg|jpeg|png|gif|webp)$">
+    Header set X-Content-Type-Options nosniff
+    Header set X-Frame-Options DENY
+</FilesMatch>
+
+# Prevent execution of PHP files in uploads directory
+<FilesMatch "\.php$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>

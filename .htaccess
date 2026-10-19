@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# If the site runs in a subdirectory, you can set RewriteBase accordingly, e.g. /saloon/
+# RewriteBase /
+
+# Pretty URL for product details: /product/123 -> product.php?id=123
+RewriteRule ^product/([0-9]+)/?$ product.php?id=$1 [L,QSA]
+</IfModule>
+
+
